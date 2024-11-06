@@ -21,6 +21,7 @@ type Task = {
 export default function Home() {
   const [taskInput, setTaskInput] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [nextId, setNextId] = useState(1);
 
   function toggleTask(id: number) {
     setTasks((prev) =>
@@ -43,12 +44,14 @@ export default function Home() {
             onChange={(event) => setTaskInput(event.currentTarget.value)}
           />
           <Button
-            onClick={() =>
+            onClick={() => {
               setTasks([
                 ...tasks,
-                { id: tasks.length + 1, title: taskInput, completed: false },
-              ])
-            }
+                { id: nextId, title: taskInput, completed: false },
+              ]);
+              setNextId(nextId + 1);
+              setTaskInput("");
+            }}
           >
             Add Task
           </Button>
