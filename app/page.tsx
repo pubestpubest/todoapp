@@ -25,6 +25,12 @@ export default function Home() {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   }
 
+  function addTask() {
+    setTasks([...tasks, { id: nextId, title: taskInput, completed: false }]);
+    setNextId(nextId + 1);
+    setTaskInput("");
+  }
+
   return (
     <Center bg="#F8F9FA" h="100vh">
       <div>
@@ -35,18 +41,7 @@ export default function Home() {
             value={taskInput}
             onChange={(event) => setTaskInput(event.currentTarget.value)}
           />
-          <Button
-            onClick={() => {
-              setTasks([
-                ...tasks,
-                { id: nextId, title: taskInput, completed: false },
-              ]);
-              setNextId(nextId + 1);
-              setTaskInput("");
-            }}
-          >
-            Add Task
-          </Button>
+          <Button onClick={() => addTask()}>Add Task</Button>
         </Flex>
         <Stack gap="md" mt="md">
           {tasks.map((task) => (
