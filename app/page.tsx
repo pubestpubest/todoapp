@@ -1,15 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Center,
-  Checkbox,
-  Flex,
-  Input,
-  Stack,
-  Title,
-  Text,
-} from "@mantine/core";
+import { Button, Center, Flex, Input, Stack, Title } from "@mantine/core";
 import { useState } from "react";
 import Task from "./components/task";
 
@@ -59,7 +50,12 @@ export default function Home() {
         </Flex>
         <Stack gap="md" mt="md">
           {tasks.map((task) => (
-            <Task task={task} toggleTask={toggleTask} deleteTask={deleteTask} />
+            <Task
+              key={task.id}
+              task={task}
+              toggleTask={toggleTask}
+              deleteTask={deleteTask}
+            />
           ))}
         </Stack>
       </div>
