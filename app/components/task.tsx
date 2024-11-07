@@ -12,19 +12,9 @@ export default function Task({
   deleteTask: (id: number) => void;
 }) {
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        borderRadius: 10,
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 10,
-      }}
-      key={task.id}
-    >
+    <div className="task-container" key={task.id}>
       <Text td={task.completed ? "line-through" : "none"}>{task.title}</Text>
-      <Flex gap="md" align="center">
+      <Flex align="center">
         <Checkbox color="green" onChange={() => toggleTask(task.id)} />
         <Button
           color="red"

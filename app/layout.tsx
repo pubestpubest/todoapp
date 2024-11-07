@@ -6,10 +6,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const myTheme = {
+    components: {
+      Flex: {
+        defaultProps: {
+          gap: "md",
+        },
+      },
+      Stack: {
+        defaultProps: {
+          gap: "md",
+          mt: "md",
+        },
+      },
+    },
+  };
   return (
     <html lang="en">
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider theme={myTheme}>{children}</MantineProvider>
       </body>
     </html>
   );

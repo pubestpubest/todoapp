@@ -33,9 +33,9 @@ export default function Home() {
 
   return (
     <Center bg="#F8F9FA" h="100vh">
-      <div>
+      <div className="container">
         <Title>Todo List</Title>
-        <Flex gap="md">
+        <Flex>
           <Input
             placeholder="Enter your task"
             value={taskInput}
@@ -43,7 +43,7 @@ export default function Home() {
           />
           <Button onClick={() => addTask()}>Add Task</Button>
         </Flex>
-        <Stack gap="md" mt="md">
+        <Stack>
           {tasks.map((task) => (
             <Task
               key={task.id}
