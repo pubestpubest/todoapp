@@ -41,7 +41,9 @@ export default function Home() {
             value={taskInput}
             onChange={(event) => setTaskInput(event.currentTarget.value)}
           />
-          <Button onClick={() => addTask()}>Add Task</Button>
+          <Button onClick={() => addTask()} disabled={taskInput.length === 0}>
+            Add Task
+          </Button>
         </Flex>
         <Stack>
           {tasks.map((task) => (
